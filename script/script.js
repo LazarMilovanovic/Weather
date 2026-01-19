@@ -79,7 +79,7 @@ async function searchCity() {
 async function getWeatherForCity(latitude, longitude) {
   try {
     const response = await axios.get(
-      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,weather_code,temperature_2m_min,sunrise,sunset,rain_sum,wind_speed_10m_max&hourly=temperature_2m,weather_code,is_day,precipitation_probability&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m&timezone=auto&forecast_hours=24`
+      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,weather_code,temperature_2m_min,sunrise,sunset,rain_sum,wind_speed_10m_max&hourly=temperature_2m,weather_code,is_day,precipitation_probability&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m&timezone=auto&forecast_hours=24`,
     );
     console.log(response.data);
 
@@ -184,12 +184,12 @@ async function getWeatherForCity(latitude, longitude) {
     // weekly Report Header Row //
     /////////////////////////////
     weeklyWeather.textContent = "";
-    const measuringNames = makeEl({ elTag: "li", elClass: "header-row" });
-    const day = makeEl({ elTag: "p", elClass: "header-day", elText: "Day" });
-    const sunrise = makeEl({ elTag: "p", elClass: "sunrise" });
-    const sunset = makeEl({ elTag: "p", elClass: "sunset" });
-    const minTemp = makeEl({ elTag: "p", elClass: "min-temp" });
-    const maxTemp = makeEl({ elTag: "p", elClass: "max-temp" });
+    const measuringNames = makeEl({ elTag: "tr", elClass: "header-row" });
+    const day = makeEl({ elTag: "th", elClass: "header-day", elText: "Day" });
+    const sunrise = makeEl({ elTag: "th", elClass: "sunrise" });
+    const sunset = makeEl({ elTag: "th", elClass: "sunset" });
+    const minTemp = makeEl({ elTag: "th", elClass: "min-temp" });
+    const maxTemp = makeEl({ elTag: "th", elClass: "max-temp" });
     measuringNames.append(day, sunrise, sunset, minTemp, maxTemp);
     weeklyWeather.append(measuringNames);
 
@@ -205,20 +205,20 @@ async function getWeatherForCity(latitude, longitude) {
     //////////////////
     const daysInAWeek = 7;
     for (let i = 0; i < daysInAWeek; i++) {
-      const listEl = makeEl({ elTag: "li", elClass: "day-element" });
+      const listEl = makeEl({ elTag: "tr", elClass: "day-element" });
       const dayName = new Date(dailyInfo.time[i]).toLocaleDateString("en-GB", {
         weekday: "short",
       });
       daysNames.push(dayName);
-      const day = makeEl({ elTag: "p", elClass: "day-name", elText: dayName });
-      const weatherIcon = makeEl({ elTag: "p" });
+      const day = makeEl({ elTag: "td", elClass: "day-name", elText: dayName });
+      const weatherIcon = makeEl({ elTag: "td" });
       const weatherCode = dailyInfo.weather_code[i];
       weatherIcon.className = getWeatherClass(weatherCode);
 
-      const sunrise = makeEl({ elTag: "p", elClass: "weather-parameter", elText: dailyInfo.sunrise[i].split("T")[1] });
-      const sunset = makeEl({ elTag: "p", elClass: "weather-parameter", elText: dailyInfo.sunset[i].split("T")[1] });
-      const minTemp = makeEl({ elTag: "p", elClass: "weather-parameter", elText: `${dailyInfo.temperature_2m_min[i]}°` });
-      const maxTemp = makeEl({ elTag: "p", elClass: "weather-parameter", elText: `${dailyInfo.temperature_2m_max[i]}°` });
+      const sunrise = makeEl({ elTag: "td", elClass: "weather-parameter", elText: dailyInfo.sunrise[i].split("T")[1] });
+      const sunset = makeEl({ elTag: "td", elClass: "weather-parameter", elText: dailyInfo.sunset[i].split("T")[1] });
+      const minTemp = makeEl({ elTag: "td", elClass: "weather-parameter", elText: `${dailyInfo.temperature_2m_min[i]}°` });
+      const maxTemp = makeEl({ elTag: "td", elClass: "weather-parameter", elText: `${dailyInfo.temperature_2m_max[i]}°` });
 
       listEl.append(day, weatherIcon, sunrise, sunset, minTemp, maxTemp);
       weeklyWeather.append(listEl);

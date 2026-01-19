@@ -128,7 +128,7 @@
   align-items: center;
   text-align: center;
   padding: 30px 0;
-  background-color: rgb(41, 104, 239);
+  background-color: rgb(16, 86, 238);
   color: rgb(243, 243, 243);
   font-weight: 100;
 }
@@ -290,7 +290,7 @@
 .forecast__results {
   margin-bottom: 30px;
 }
-.forecast__results li {
+.forecast__results tr {
   display: flex;
   gap: 10px;
   align-items: center;
@@ -301,6 +301,8 @@
   gap: 14px;
 }
 .forecast__results .header-day {
+  text-align: start;
+  font-weight: normal;
   width: 75px;
 }
 .forecast__results .day-name {

@@ -318,7 +318,7 @@
 //-----------------------//
 .forecast__results {
   margin-bottom: 30px;
-  li {
+  tr {
     display: flex;
     gap: 10px;
     align-items: center;
@@ -331,6 +331,8 @@
   }
 
   .header-day {
+    text-align: start;
+    font-weight: normal;
     width: 75px;
   }
 
