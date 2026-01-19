@@ -26,7 +26,6 @@ const maximumTemp = document.getElementById("maximum-temp");
 const humidityNum = document.getElementById("humidity-num");
 const footerWeatherText = document.getElementById("weather-text");
 const footerWindSpeed = document.getElementById("wind-speed");
-const footerTime = document.getElementById("time");
 
 /////////////////////
 // Axios Base URL //
@@ -95,6 +94,15 @@ async function getWeatherForCity(latitude, longitude) {
     const sunriseTime = new Date(dailyInfo.sunrise[0]).getHours();
     const sunsetTime = new Date(dailyInfo.sunset[0]).getHours();
     const currentTime = new Date(currentInfo.time).getHours();
+
+    // Set Background IS DAY/NIGHT //
+    if (currentInfo.is_day) {
+      weatherData.classList.remove("night-background");
+      weatherData.classList.add("day-background");
+    } else {
+      weatherData.classList.remove("day-background");
+      weatherData.classList.add("night-background");
+    }
 
     //////////////////////////
     // Making daily report //
