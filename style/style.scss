@@ -62,7 +62,7 @@
 // WEATHER DATA SECTION //
 /////////////////////////
 .weather-data {
-  // background: url(../images/cloudy.jpg);
+  background: url(../images//day-bg/cloudy.jpg);
   background-position: center;
   background-size: cover;
   display: flex;
@@ -72,17 +72,17 @@
   padding: 20px;
 }
 
-.day-background {
-  background: url("/images/day-bg/cloudy.jpg");
-  background-position: center;
-  background-size: cover;
-}
+// .day-background {
+//   background: url("/images/day-bg/cloudy.jpg");
+//   background-position: center;
+//   background-size: cover;
+// }
 
-.night-background {
-  background: url("/images//night-bg/clear-sky.jpg");
-  background-position: center;
-  background-size: cover;
-}
+// .night-background {
+//   background: url("/images//night-bg/clear-sky.jpg");
+//   background-position: center;
+//   background-size: cover;
+// }
 
 //----------------//
 // Daily Weather //
