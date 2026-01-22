@@ -73,15 +73,11 @@
 }
 
 .day-background {
-  background: url("../images/day-bg/cloudy.jpg");
-  background-position: center;
-  background-size: cover;
+  background-image: url("../images/day-bg/cloudy.jpg");
 }
 
 .night-background {
-  background: url("../images/night-bg/clear-sky.jpg");
-  background-position: center;
-  background-size: cover;
+  background-image: url("../images/night-bg/clear-sky.jpg");
 }
 
 //----------------//
