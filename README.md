@@ -7,7 +7,11 @@ https://open-meteo.com/
 ### Technologies used:
   HTML <br>
   CSS <br>
-  JavaSctipt <br><br>
+  JavaSctipt
+  
+[![My Skills](https://skillicons.dev/icons?i=html,css,js)](https://skillicons.dev)
+
+
 
 ### Live Demo 
 https://lazarmilovanovic.github.io/WeatherApp/
